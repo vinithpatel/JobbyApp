@@ -56,7 +56,7 @@ const salaryRangesList = [
 class Jobs extends Component {
   state = {
     profileApiStatus: apiStatusConstants.initial,
-    jobsApiStatus: apiStatusConstants.initail,
+    jobsApiStatus: apiStatusConstants.initial,
     profileDetails: {},
     jobsDetails: {},
     searchText: '',
@@ -70,7 +70,6 @@ class Jobs extends Component {
   }
 
   getProfileDetails = async () => {
-    console.log('get profile data')
     this.setState({profileApiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
 
@@ -116,10 +115,10 @@ class Jobs extends Component {
     const {searchText, employmentType, salaryRangeId} = this.state
 
     const commaSeparatedData = employmentType.join(',')
-    console.log(commaSeparatedData)
-    const jwtToken = Cookies.get('jwt_token')
 
+    const jwtToken = Cookies.get('jwt_token')
     const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${commaSeparatedData}&minimum_package=${salaryRangeId}&search=${searchText}`
+
     const options = {
       method: 'GET',
       headers: {
@@ -128,19 +127,20 @@ class Jobs extends Component {
     }
 
     const response = await fetch(jobsApiUrl, options)
+
     if (response.ok) {
       const data = await response.json()
       const formatedJobsData = {
         jobs: this.getCamelCaseData(data.jobs),
         total: data.total,
       }
-      console.log(formatedJobsData)
+
       this.setState({
         jobsDetails: formatedJobsData,
         jobsApiStatus: apiStatusConstants.success,
       })
     } else {
-      this.setState({jobsApiStatus: apiStatusConstants.faiure})
+      this.setState({jobsApiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -149,24 +149,19 @@ class Jobs extends Component {
   }
 
   updateTypesOfEmployment = event => {
-    const {employmentType} = this.state
-    if (!employmentType.includes(event.target.value)) {
-      this.setState(
-        prevState => ({
+    this.setState(prevState => {
+      const {employmentType} = prevState
+      if (!employmentType.includes(event.target.value)) {
+        return {
           employmentType: [...prevState.employmentType, event.target.value],
-        }),
-        this.getJobsDetails,
-      )
-    } else {
-      this.setState(
-        prevState => ({
-          employmentType: prevState.employmentType.filter(
-            each => each !== event.target.value,
-          ),
-        }),
-        this.getJobsDetails,
-      )
-    }
+        }
+      }
+      return {
+        employmentType: prevState.employmentType.filter(
+          each => each !== event.target.value,
+        ),
+      }
+    }, this.getJobsDetails)
   }
 
   onUpdateSalaryRange = event => {
@@ -233,7 +228,7 @@ class Jobs extends Component {
 
   renderSalaryRangesFilter = () => (
     <div className="filter-card">
-      <h1 className="filter-heading">Type of Employment</h1>
+      <h1 className="filter-heading">Salary Range</h1>
       <ul className="filter-list-items">
         {salaryRangesList.map(eachObject => (
           <li key={eachObject.salaryRangeId} className="input-item">
@@ -266,7 +261,7 @@ class Jobs extends Component {
       />
       <h1 className="failure-heading">No Jobs Found</h1>
       <p className="failure-para">
-        We could not find any jobs. Try other filter
+        We could not find any jobs. Try other filters
       </p>
     </div>
   )
@@ -274,7 +269,7 @@ class Jobs extends Component {
   renderJobs = () => {
     const {jobsDetails} = this.state
     const {total, jobs} = jobsDetails
-    if (total < 1) {
+    if (total === 0) {
       return this.renderNoJobsView()
     }
 
@@ -309,7 +304,7 @@ class Jobs extends Component {
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
       />
-      <h1 className="failure-heading">Something Went Wrong</h1>
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
       <p className="failure-para">
         We cannot seem to find the page you are looking for
       </p>

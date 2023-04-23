@@ -43,21 +43,27 @@ const Header = props => {
       >
         Logout
       </button>
-      <div className="sm-nav-link-buttons">
-        <Link className="nav-link" to="/">
-          <AiFillHome className="nav-link-icon" />
-        </Link>
-        <Link className="nav-link" to="/">
-          <BsFillBriefcaseFill className="nav-link-icon" />
-        </Link>
-        <button
-          type="button"
-          className="logout-icon-button"
-          onClick={onClickLogout}
-        >
-          <FiLogOut className="nav-link-icon" />
-        </button>
-      </div>
+      <ul className="sm-nav-link-buttons">
+        <li>
+          <Link className="nav-link" to="/">
+            <AiFillHome className="nav-link-icon" />
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-link" to="/jobs">
+            <BsFillBriefcaseFill className="nav-link-icon" />
+          </Link>
+        </li>
+        <li>
+          <button
+            type="button"
+            className="logout-icon-button"
+            onClick={onClickLogout}
+          >
+            <FiLogOut className="nav-link-icon" />
+          </button>
+        </li>
+      </ul>
     </nav>
   )
 }

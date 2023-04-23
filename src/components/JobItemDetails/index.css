@@ -1,0 +1,116 @@
+.job-item-details-bg-container {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.job-item-details-container {
+  background-color: #202020;
+  border-radius: 10px;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .job-item-details-bg-container {
+    padding: 50px;
+  }
+  .job-item-details-container {
+    padding: 40px;
+  }
+}
+.job-item-details-desc-card {
+  font-family: 'Roboto';
+  color: #ffffff;
+  width: 100%;
+}
+.desc-heading-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.desc-heading {
+  font-size: 20px;
+  color: #ffffff;
+}
+.job-card-desc {
+  color: #ffffff;
+  font-size: 18px;
+}
+.visit-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #6366f1;
+  display: flex;
+  align-items: center;
+}
+.visit-icon {
+  color: #6366f1;
+  font-size: 20px;
+}
+.list-of-skills {
+  width: 100%;
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.skill-item {
+  width: 120px;
+  height: 70px;
+  font-family: 'Roboto';
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .skill-item {
+    width: 300px;
+  }
+}
+.skill-image {
+  height: 50px;
+}
+.skill-name {
+  font-weight: 400;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.life-at-company-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .life-at-company-card {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .life-at-company-image {
+    width: 100%;
+    margin-left: 10px;
+  }
+}
+.similar-jobs-bg-container {
+  background-color: #000000;
+  width: 100%;
+}
+.similar-jobs-heading {
+  color: #ffffff;
+}
+.list-of-similar-jobs {
+  list-style-type: none;
+  padding-left: 0px;
+}
+@media (min-width: 768px) {
+  .list-of-similar-jobs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

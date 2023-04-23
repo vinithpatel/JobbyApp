@@ -4,7 +4,7 @@ import {BsFillBriefcaseFill} from 'react-icons/bs'
 
 import './index.css'
 
-const JobCard = props => {
+const SimilarJobCard = props => {
   const {jobCardDetails} = props
   const {
     companyLogoUrl,
@@ -12,7 +12,6 @@ const JobCard = props => {
     id,
     jobDescription,
     location,
-    packagePerAnnum,
     rating,
     title,
   } = jobCardDetails
@@ -20,12 +19,12 @@ const JobCard = props => {
   return (
     <li>
       <Link to={`/jobs/${id}`} className="nav-link">
-        <div className="job-card">
+        <div className="similar-job-card">
           <div className="job-card-logo-container">
             <img
               className="job-card-company-logo"
               src={companyLogoUrl}
-              alt="company logo"
+              alt="similar job company logo"
             />
             <div className="job-card-name-card">
               <h1 className="job-card-title">{title}</h1>
@@ -35,6 +34,8 @@ const JobCard = props => {
               </div>
             </div>
           </div>
+          <h1 className="desc-heading">Description</h1>
+          <p className="job-card-desc">{jobDescription}</p>
           <div className="package-location-role-type-card">
             <div className="location-role-type-card">
               <div className="job-card-location-card">
@@ -46,15 +47,11 @@ const JobCard = props => {
                 <p className="location-para">{employmentType}</p>
               </div>
             </div>
-            <p className="package-para">{packagePerAnnum}</p>
           </div>
-          <hr className="horizental-rule" />
-          <h1 className="desc-heading">Description</h1>
-          <p className="job-card-desc">{jobDescription}</p>
         </div>
       </Link>
     </li>
   )
 }
 
-export default JobCard
+export default SimilarJobCard

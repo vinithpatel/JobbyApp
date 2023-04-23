@@ -1,0 +1,50 @@
+.home-bg-container {
+  background-color: #000000;
+  height: 95vh;
+  font-family: 'Roboto';
+  color: #ffffff;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .home-bg-container {
+    padding: 40px;
+  }
+}
+.home-heading {
+  font-size: 32px;
+}
+@media (min-width: 768px) {
+  .home-heading {
+    font-size: 50px;
+  }
+}
+.home-para {
+  font-size: 16px;
+  color: #f1f5f9;
+  font-weight: 400;
+}
+.find-jobs-button {
+  border-width: 0px;
+  background-color: #6366f1;
+  width: 90px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  outline: none;
+}
+@media (min-width: 768px) {
+  .home-heading {
+    font-size: 50px;
+  }
+  .home-para {
+    font-size: 25px;
+  }
+  .find-jobs-button {
+    width: 120px;
+    height: 50px;
+    font-weight: 500;
+  }
+}

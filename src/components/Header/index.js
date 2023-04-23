@@ -36,7 +36,11 @@ const Header = props => {
           </Link>
         </li>
       </ul>
-      <button className="lg-logout-button" onClick={onClickLogout}>
+      <button
+        type="button"
+        className="lg-logout-button"
+        onClick={onClickLogout}
+      >
         Logout
       </button>
       <div className="sm-nav-link-buttons">

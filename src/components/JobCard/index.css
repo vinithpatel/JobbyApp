@@ -1,0 +1,66 @@
+.job-card {
+  background-color: #121212;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.job-card-logo-container {
+  display: flex;
+  align-items: center;
+}
+.job-card-company-logo {
+  height: 60px;
+}
+.job-card-name-card {
+  font-family: 'Roboto';
+  color: #ffffff;
+  margin-left: 10px;
+}
+.job-card-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.job-rating-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.star-icn {
+  color: #fbbf24;
+}
+.rating-para {
+  margin-left: 5px;
+}
+.package-location-role-type-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.location-role-type-card {
+  display: flex;
+  align-items: center;
+}
+.job-card-location-card {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.location-icon {
+  color: #ffffff;
+  font-size: 15px;
+}
+.location-para {
+  margin-left: 5px;
+  color: #ffffff;
+  font-size: 15px;
+}
+.package-para {
+  font-size: 16px;
+}

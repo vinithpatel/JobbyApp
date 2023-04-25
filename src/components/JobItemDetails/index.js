@@ -18,7 +18,7 @@ const apiStatusConstants = {
 }
 class JobItemDetails extends Component {
   state = {
-    jobItemApiStatus: apiStatusConstants.initail,
+    jobItemApiStatus: apiStatusConstants.initial,
     jobItemDetails: {},
   }
 

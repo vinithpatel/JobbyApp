@@ -130,10 +130,7 @@ class Jobs extends Component {
 
     if (response.ok) {
       const data = await response.json()
-      const formatedJobsData = {
-        jobs: this.getCamelCaseData(data.jobs),
-        total: data.total,
-      }
+      const formatedJobsData = this.getCamelCaseData(data.jobs)
 
       this.setState({
         jobsDetails: formatedJobsData,
@@ -268,14 +265,13 @@ class Jobs extends Component {
 
   renderJobs = () => {
     const {jobsDetails} = this.state
-    const {total, jobs} = jobsDetails
-    if (total === 0) {
+    if (jobsDetails.length === 0) {
       return this.renderNoJobsView()
     }
 
     return (
       <ul className="jobs-container">
-        {jobs.map(eachJobObject => (
+        {jobsDetails.map(eachJobObject => (
           <JobCard key={eachJobObject.id} jobCardDetails={eachJobObject} />
         ))}
       </ul>
